@@ -1,38 +1,57 @@
 <header class="header-nav">
     <div class="header-nav-top">
-        <div class="header-nav-top-wrap d-flex align-items-center gap-4 flex-wrap">
-            <a id="btn_logo">
-                <img src="./assets/images/logo.png" alt="Convertedin" class="logo">
-            </a>
-    
-            <div class="search-bar-wrap">
-                <img src="./assets/images/search.svg" class="search-icon">
-                <input type="text" id="searchBar" class="search-text" placeholder="search for product" autocomplete="off"
-                    value="">
-            </div>
-    
-            <a class="wishlist-link d-flex align-items-center gap-2" href="#" title="Wishlist">
-                <div class="cart-icon-container">
-                    <img src="./assets/images/wishlist.svg" alt="wishlist" width="20px"
-                    height="20px">
+        <ul class="header-nav-top-wrap d-flex align-items-center gap-4 flex-wrap px-0">
+            <li class="nav-item">
+                <a id="btn_logo">
+                    <img src="./assets/images/logo.png" alt="Convertedin" class="logo">
+                </a>
+            </li>
+            <li class="nav-item search-bar-wrap">
+                <div class="w-100">
+                    <img src="./assets/images/search.svg" class="search-icon">
+                    <input type="text" id="searchBar" class="search-text" placeholder="Search for product"
+                        autocomplete="off" [(ngModel)]="searchQuery" (input)="onInputChange()">
                 </div>
-                <span class="cart-title">Wishlist</span>
-            </a>
-    
-            <a href="#" title="Cart" class="cart-link d-flex align-items-center gap-2">
-                <div class="cart-icon-container">
-                    <img src="./assets/images/cart.svg" alt="cart" width="20px" height="20px">
+            </li>
+            <li class="nav-item">
+                <a class="wishlist-link d-flex align-items-center gap-2" href="#" title="Wishlist">
+                    <div class="cart-icon-container">
+                        <img src="./assets/images/wishlist.svg" alt="wishlist" width="20px" height="20px">
+                    </div>
+                    <span class="cart-title">Wishlist</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a title="Cart" class="cart-link d-flex align-items-center gap-2 dropdown-toggle" href="#"
+                    id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <div class="cart-icon-container">
+                        <img src="./assets/images/cart.svg" alt="cart" width="20px" height="20px">
+                        <span class="notify"></span>
+                    </div>
+                    <span class="cart-title">Cart</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ng-container *ngIf="cartItems.length">
+                        <div *ngFor="let cartItem of cartItems; let i = index">
+                            <a class="dropdown-item d-flex gap-3" href="/product-details/{{cartItem?.product?.id}}">
+                                <span>{{cartItem?.product?.title}}</span>
+                                <span>(QTY {{cartItem?.count}})</span>
+                            </a>
+                            <div class="dropdown-divider" *ngIf="i == cartItems.length"></div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="!cartItems.length">
+                        <a class="dropdown-item" >No product added</a>
+                    </ng-container>
+        
                 </div>
-                <span class="cart-title">Cart</span>
-            </a>
-        </div>
+            </li>
+        </ul>
     </div>
     <div class="header-nav-bottom">
         <ul class="nav-menu d-flex align-items-center gap-3 px-0 flex-wrap">
-            <li class="nav-item" *ngFor="let item of menuSub"><a
-                href="#"><span>{{item | uppercase}}</span></a>
-            </li>
+            <li class="nav-item" *ngFor="let item of menuSub"><a href="#"><span>{{ item | uppercase }}</span></a></li>
         </ul>
-            
     </div>
 </header>

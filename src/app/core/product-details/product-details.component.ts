@@ -2,20 +2,22 @@ import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { DropdownModule } from 'primeng/dropdown';
-import { PreloaderComponent, ListingStateCardComponent, Product, ResponseResult } from '@convertedin/shared';
+import { PreloaderComponent, ListingStateCardComponent, Product, ResponseResult, BreadcrumbComponent } from '@convertedin/shared';
 import { ProductDetailsService } from './services/product-details.service';
 import { FormsModule } from '@angular/forms';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
   imports: [
     CommonModule,
-    DropdownModule,
+    InputNumberModule,
     FormsModule,
     PreloaderComponent,
-    ListingStateCardComponent,]
+    ListingStateCardComponent,
+    BreadcrumbComponent
+]
   ,
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
@@ -23,7 +25,6 @@ import { FormsModule } from '@angular/forms';
 export class ProductDetailsComponent implements OnInit {
   private destroy$ = new Subject<void>();
 
-  assetUrl = 'environment.assetUrl';
   isLoading = this.productDetailsService.isLoading;
   productId!: string;
   productItem = signal<Product | undefined>(undefined);
@@ -36,7 +37,7 @@ export class ProductDetailsComponent implements OnInit {
     { src: './assets/images/secure_usp.svg', title: 'SECURE SHOPPING', desc: 'Your data is always protected' }
   ]
 
-  selectedQTY!: string;
+  selectedQTY: string = '1';
   currentImage!: string;
   constructor(private route: ActivatedRoute, private productDetailsService: ProductDetailsService) { }
   ngOnInit(): void {
@@ -59,16 +60,12 @@ export class ProductDetailsComponent implements OnInit {
     this.currentImage = image;
   }
 
-  addCart() {
-
+  addCart(product: Product) {
+    this.productDetailsService.productService.cart.next({ count: this.selectedQTY, product: product })
   }
 
-  getQTYOptions(stock: number) {
-    let list = [];
-    for (let index = 1; index <= stock; index++) {
-      list.push({ name: `QTY ${index}`, value: index });
-    }
-    return list
+  getBreadcrumb(product: Product) {
+    return [{ name: product.category }, {name: product.title}]
   }
 
   ngOnDestroy() {

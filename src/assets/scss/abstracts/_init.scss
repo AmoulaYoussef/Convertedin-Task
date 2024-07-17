@@ -45,18 +45,6 @@ html {
             }
     }
 
-    // @media (min-width: 1450px) {
-    //     font-size: 16px;
-
-    //     &.small-font {
-    //         font-size: 14px;
-    //     }
-
-    //     &.large-font {
-    //         font-size: 18px;
-    //     }
-    // }
-
     @include media-breakpoint-up(xxl) {
         font-size: 18px;
 

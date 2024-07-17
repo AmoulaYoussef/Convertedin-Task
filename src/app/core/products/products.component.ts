@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // import { environment } from '@environment/*';
-import { PreloaderComponent, ListingStateCardComponent, ProductCardComponent, PaginatorComponent } from '@convertedin/shared';
+import { PreloaderComponent, ListingStateCardComponent, ProductCardComponent, PaginatorComponent, Product } from '@convertedin/shared';
 import { ProductListService } from './services/product-list.service';
 import { CategorySectionComponent } from './category-section/category-section.component';
 import { BrandSectionComponent } from './brand-section/brand-section.component';
 import { ProductRatingSectionComponent } from './product-rating-section/product-rating-section.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -25,6 +26,8 @@ import { ProductRatingSectionComponent } from './product-rating-section/product-
 })
 export class ProductsComponent {
   productListService = inject(ProductListService);
+  private router = inject(Router)
+  
   assetUrl = 'environment.assetUrl';
   isLoading = this.productListService.isLoading;
   totalCount = this.productListService.totalCount;
@@ -34,5 +37,9 @@ export class ProductsComponent {
 
   trackBy(item: any) {
     return item.id
+  }
+
+  routeToDetails(item: Product) {
+    this.router.navigate([`product-details/${item.id}`]);
   }
 }

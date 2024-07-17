@@ -281,17 +281,7 @@ button {
         height:to-rem(16px);
     }
 }
-.p-multiselect .p-multiselect-trigger {
 
-    margin-top: to-rem(6px);
-    
-    svg{
-        width:to-rem(22px);
-        height: to-rem(29px);
-        color:var(--primary-dark);
-        @extend %flipX;
-    }   
-}
 .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
     border-color: var(--primary);
 }
@@ -332,22 +322,6 @@ p-checkbox.ng-dirty.ng-invalid > .p-checkbox > .p-checkbox-box {
           color:var(--dark);
         }
     }
-    .p-dropdown-trigger{
-
-        margin-top:to-rem(4px);
-        margin-left:to-rem(4px);
-        border-top-left-radius:0;
-        border-bottom-left-radius:0;  
-  
-        svg{
-            width:to-rem(22px);
-            height:to-rem(29px);
-            color: var(--primary-dark);
-            .rtl &{
-              @extend %flipX;
-            }
-        }
-      }
 }
 
 .p-inputtext {
@@ -722,17 +696,7 @@ p-radiobutton {
       
     }  
 }
-.p-datepicker{
-    .p-datepicker-header{
-        .p-datepicker-prev,
-        .p-datepicker-next{
-            .rtl &{
-                @extend %flipX;
 
-            }
-        }
-    }
-}
 @include keyframe (p-component-overlay-enter-animation){
     from {
       background-color: transparent;

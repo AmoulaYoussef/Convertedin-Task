@@ -12,7 +12,7 @@
                 <div class="product-list-wrap">
                     <div class="product-list">
                         <div class="product-item" *ngFor="let item of productItem; trackBy:trackBy">
-                            <app-product-card [product]="item" ></app-product-card>
+                            <app-product-card [product]="item" (click)="routeToDetails(item)"></app-product-card>
                         </div>
                     </div>
                 </div>
@@ -36,4 +36,4 @@
     <listing-state-card description="internalErrorDescription"
         [title]="errorMessage()! || 'internalError'"></listing-state-card>
 </ng-container>
-<preloader [assetUrl]="assetUrl" *ngIf="isLoading()"></preloader>
+<preloader  *ngIf="isLoading()"></preloader>

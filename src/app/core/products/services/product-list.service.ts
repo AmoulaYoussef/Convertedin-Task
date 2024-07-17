@@ -23,7 +23,7 @@ export class ProductListService {
       })
       filterObj.limit = 20;
       filterObj.skip = (filterObj.page - 1) * 20 || 0;
-      return this.getAllProducts(filterObj).pipe(
+      return this.getAllProducts(filterObj, filterObj.category, filterObj.q).pipe(
         map((res) => res.products),
         map((res) => ({ result: res, error: undefined })),
         catchError((err) => {
@@ -35,9 +35,9 @@ export class ProductListService {
   itemsSignal = toSignal<ResponseResult<Product[] | undefined>>(this.items)
   productItems = computed(() => this.itemsSignal()?.result)
   productErrors = computed(() => this.itemsSignal()?.error)
-  getAllProducts(queryObj: any): Observable<ProductsListResponse> {
+  getAllProducts(queryObj: any, category: string, q: string): Observable<ProductsListResponse> {
     this.isLoading.set(true)
-    return this.productService.getProducts(queryObj).pipe(
+    return this.productService.getProducts(queryObj, category, q).pipe(
       tap((res) => this.totalCount.set(res.total)),
       finalize(() => this.isLoading.set(false))
     )

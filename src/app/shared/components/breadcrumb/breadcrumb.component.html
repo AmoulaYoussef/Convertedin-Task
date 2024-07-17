@@ -1,1 +1,4 @@
-<p>breadcrumb works!</p>
+<ul class="d-flex gap-2 px-0 breadcrumb">
+    <li class=""><img src="./assets/images/home.svg"></li>
+    <li  *ngFor="let item of breadcrumb;let i = index" class="d-flex gap-2"> <img src="./assets/images/slash-divider.svg"> <button class="breadcrumb-btn" (click)="getRoute(item, i)">{{item.name | uppercase}}</button></li>
+</ul>

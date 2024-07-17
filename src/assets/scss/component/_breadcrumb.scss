@@ -1,0 +1,18 @@
+.breadcrumb {
+    font-size: remDefault(12px);
+    margin-bottom: remDefault(60px);
+    margin-top: remDefault(30px);
+    font-weight: 500;
+    li {
+        &:last-child {
+            button {
+                cursor: default;
+            }
+        }
+    }
+    button {
+        color: $dark-47-black;
+        background: unset;
+        border: none;
+    }
+}

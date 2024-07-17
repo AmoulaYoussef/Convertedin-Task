@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,5 +9,4 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./preloader.component.scss'],
 })
 export class PreloaderComponent {
-  @Input({required:true}) assetUrl = '';
 }

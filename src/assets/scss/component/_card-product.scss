@@ -18,6 +18,7 @@
             .card-product {
                 width: remDefault(200px);
                 background: $white;
+                cursor: pointer;
                 &-img {
                   height: remDefault(200px);
                   border-bottom: 5px solid $light-d-gray;

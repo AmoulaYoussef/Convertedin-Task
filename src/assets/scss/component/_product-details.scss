@@ -6,6 +6,13 @@
         width: remDefault(350px);
         padding: remDefault(16px);
     }
+    
+    .number-qty {
+        width: calc(100% - remDefault(350px));
+        .p-inputtext {
+            width: 100%;
+        }
+    }
 }
 
 .product-title {
@@ -62,6 +69,7 @@
     background: $light-e-yallow;
     padding: remDefault(16px);
 }
+
 
 // product-images
 

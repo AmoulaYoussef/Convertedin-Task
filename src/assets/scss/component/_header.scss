@@ -1,3 +1,8 @@
+app-header{
+    position: sticky;
+    top: 0;
+    z-index: 1024;
+}
 .header-nav {
         
     .header-nav-top {
@@ -42,4 +47,12 @@
         background: $primary-color-light;
         padding: remDefault(20px) remDefault(48px);
     }
+}
+
+.notify {
+    background: $danger;
+    padding: remDefault(7px);
+    position: absolute;
+    border-radius: 50%;
+    left: remDefault(7px);
 }

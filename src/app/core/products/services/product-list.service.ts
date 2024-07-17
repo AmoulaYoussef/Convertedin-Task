@@ -1,14 +1,14 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Product, ProductService, ProductsListResponse, ResponseResult } from '@convertedin/shared';
-import { catchError, finalize, map, Observable, of, switchMap, tap } from 'rxjs';
+import { catchError, finalize, map, Observable, of, Subject, switchMap, tap } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductListService {
-
+  breadcrumb: any = [];
   productService = inject(ProductService);
   constructor(private route: ActivatedRoute) { }
 
@@ -23,6 +23,7 @@ export class ProductListService {
       })
       filterObj.limit = 20;
       filterObj.skip = (filterObj.page - 1) * 20 || 0;
+      this.breadcrumb = [{ name: filterObj.category }];
       return this.getAllProducts(filterObj, filterObj.category, filterObj.q).pipe(
         map((res) => res.products),
         map((res) => ({ result: res, error: undefined })),

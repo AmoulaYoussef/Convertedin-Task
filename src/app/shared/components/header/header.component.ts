@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '@convertedin/shared';
-import { debounceTime, Subject, takeUntil } from 'rxjs';
+import { debounceTime, Subject, switchMap, takeUntil } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -20,27 +20,28 @@ export class HeaderComponent {
 
   productService = inject(ProductService);
   searchQuery: string = '';
-  private searchSubject = new Subject<string>();
 
-
+  removeNotify = false;
 
   constructor(
     private _route: ActivatedRoute,
     private _router: Router
   ) { }
 
-
+  
   ngOnInit(): void {
     this.productService.cart.pipe(
       takeUntil(this.destroy$),
-      ).subscribe((cart: any) => {
-        this.cartItems = [...this.cartItems, cart];
-      })
+    ).subscribe((cart: any) => {
+      this.removeNotify = true;
+      this.cartItems = [...this.cartItems, cart];
+    });
 
-    this.searchSubject.pipe(
+    this.productService.searchSubject.pipe(
         debounceTime(2000),  
         takeUntil(this.destroy$)
-      ).subscribe(searchQuery => {
+    ).subscribe(searchQuery => {
+      this.searchQuery = searchQuery;
         this._router.navigate(['products'], {
           queryParams: {
             q: searchQuery
@@ -51,7 +52,7 @@ export class HeaderComponent {
     }
 
     onInputChange(): void {
-      this.searchSubject.next(this.searchQuery);
+      this.productService.searchSubject.next(this.searchQuery);
     }
 
   ngOnDestroy() {

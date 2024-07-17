@@ -1,10 +1,21 @@
 <ng-container *ngIf="items() as productItem">
-    <div class="container">
-        <div class="row product-listing-filter">
+    <div class="container  product-listing-filter">
+        <app-breadcrumb [breadcrumb]="getBreadcrumb()"></app-breadcrumb>
+        
+        <div class="row">
             <div class="col-md-3">
                 <div class="product-filter">
-                  <app-category-section [catagories]="(catagories$ | async) || []"></app-category-section>
+                  <app-category-section [catagories]="(catagories$ | async) || []" [breadcrumb]="getBreadcrumb()"></app-category-section>
                   <app-brand-section></app-brand-section>
+                  <div class="price-section">
+                    <p class="section-title mt-5">Price Range (EGP)</p>
+                    <div class="d-flex gap-3 align-items-center price-wrap">
+                        <span>From</span> 
+                        <p-inputNumber  [(ngModel)]="from" inputId="from" mode="decimal" [min]="1" />
+                        <span>To</span>
+                        <p-inputNumber [(ngModel)]="to" inputId="to" mode="decimal" [min]="1" />
+                    </div>
+                  </div>
                   <app-product-rating-section></app-product-rating-section>
                 </div>
             </div>
@@ -15,23 +26,19 @@
                             <app-product-card [product]="item" (click)="routeToDetails(item)"></app-product-card>
                         </div>
                     </div>
+                    <ng-container *ngIf="items()?.length === 0">
+                                <listing-state-card [assetUrl]="assetUrl" [title]="'No Data Found'"></listing-state-card>
+                    </ng-container>
+
+                    <paginator *ngIf="totalCount() && totalCount() >= 20" class="d-block" [rows]="20" [totalRecords]="totalCount()">
+                    </paginator>
                 </div>
             </div>
         </div>
     </div>
-
-    <paginator *ngIf="totalCount() && totalCount() >= 20" class="d-block" [rows]="20"
-        [totalRecords]="totalCount()"></paginator>
-    <ng-container *ngIf="items()?.length === 0">
-        <div class="row">
-            <div class="col-lg-7 col-md-9 mx-auto">
-                <listing-state-card [assetUrl]="assetUrl"
-                    [description]="'noDataFoundDescription'"
-                    [title]="'noDataFound'"></listing-state-card>
-            </div>
-        </div>
-    </ng-container>
+   
 </ng-container>
+
 <ng-container *ngIf="errorMessage()">
     <listing-state-card description="internalErrorDescription"
         [title]="errorMessage()! || 'internalError'"></listing-state-card>

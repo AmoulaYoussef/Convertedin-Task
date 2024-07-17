@@ -38,7 +38,6 @@ export class ProductDetailsComponent implements OnInit {
   ]
 
   selectedQTY: string = '1';
-  currentImage!: string;
   constructor(private route: ActivatedRoute, private productDetailsService: ProductDetailsService) { }
   ngOnInit(): void {
     this.productId = this.route.snapshot.paramMap.get('id')!;
@@ -56,9 +55,7 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
-  getCurrentImage(image: string) {
-    this.currentImage = image;
-  }
+
 
   addCart(product: Product) {
     this.productDetailsService.productService.cart.next({ count: this.selectedQTY, product: product })

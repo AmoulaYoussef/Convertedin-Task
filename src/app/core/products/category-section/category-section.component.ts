@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { Category } from '@convertedin/shared';
+import { Component, inject, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-section',
@@ -10,15 +10,14 @@ import { Category } from '@convertedin/shared';
   styleUrl: './category-section.component.scss'
 })
 export class CategorySectionComponent {
-  @Input() catagories!: Category[];
-  catagoryList = [
-    'All Electronics & Mobiles', 
-    'Computers & Accessories',
-    'Video Games',
-    'Mobiles & Accessories',
-    'Portable Audio & Video',
-    'Wearables',
-    'Camera & Photo',
-    'Television & VideoAll'
-  ]
+  private router = inject(Router)
+
+  @Input() catagories!: string[];
+  @Input() breadcrumb!: any[];
+  searchByCategory(category: string, page = 0) {
+    this.router.navigate(['products'], {
+      queryParams: { category, page },
+      queryParamsHandling: 'merge',
+    });
+  }
 }

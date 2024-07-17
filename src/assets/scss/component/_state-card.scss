@@ -1,0 +1,75 @@
+.listing-request-state-card {
+
+    border-radius: remDefault(30px);
+    background-color: #EEF0F7;
+    font-family: var(--medium-font);
+    border: none;
+    margin-bottom: 0;
+
+    @include media-breakpoint-down(md) {
+
+        padding: remDefault(80px) 0;
+
+    }
+
+    @include media-breakpoint-up(lg) {
+
+        padding: remDefault(100.5px) 0;
+
+    }
+
+    img {
+
+        max-width: 100%;
+        object-fit: contain;
+
+        @media (max-width: 1600px) {
+            width: remDefault(140px);
+            height: remDefault(140px);
+        }
+
+        @media (min-width: 1600px) {
+            width: remDefault(160px);
+            height: remDefault(160px);
+        }
+
+    }
+
+    .title {
+
+        color: var(--primary-dark);
+        margin-top: remDefault(20px);
+
+        @media (max-width: 1600px) {
+            font-size: remDefault(25px);
+            margin-bottom: remDefault(20px);
+        }
+
+        @media (min-width: 1600px) {
+            font-size: remDefault(28px);
+            margin-bottom: remDefault(25px);
+
+        }
+    }
+
+    .description {
+        color: var(--gray);
+
+        @media (max-width: 1600px) {
+            font-size: remDefault(19px);
+        }
+
+        @media (min-width: 1600px) {
+            font-size: remDefault(20px);
+        }
+    }
+
+    .title,
+    .description {
+        font-family: var(--medium-font);
+        text-align: center;
+
+    }
+
+
+}

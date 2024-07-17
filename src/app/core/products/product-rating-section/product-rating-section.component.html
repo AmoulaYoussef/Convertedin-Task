@@ -1,12 +1,11 @@
-<p class="section-title">Product Rating</p>
+<p class="section-title mt-5">Product Rating</p>
 
 <div class="d-flex flex-column rating">
     <p-slider [(ngModel)]="value" [step]="1" [min]="1" [max]="5" styleClass="w-14rem" />
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between mt-2">
         <span class="rating-label">1 Star</span>
         <span class="rating-label">5 Star</span>
     </div>
 </div>
-{{value}}
 
 

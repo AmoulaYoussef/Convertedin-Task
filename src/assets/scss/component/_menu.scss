@@ -21,6 +21,12 @@ ul {
        font-size: remDefault(16px);
        color: $dark-d-black;
        margin-bottom: remDefault(20px);
+       width: 100%;
+       &.active {
+        button {
+            font-weight: 700;
+        }
+       }
    }
 }
 

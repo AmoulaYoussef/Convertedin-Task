@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-md-5 product-images d-flex gap-3">
                 <div class="d-flex flex-column product-images-list">
-                    <img src="{{image}}" alt="{{product.title}}" *ngFor="let image of product.images" (click)="getCurrentImage(image)"/>
+                    <img src="{{image}}" alt="{{product.title}}" *ngFor="let image of product.images" />
                 </div>
                 <div class="product-images-view" *ngIf="product?.images?.length">
-                    <img src="{{currentImage??  product.images.length ? product.images : ''}}" alt="{{product.title}}" />
+                    <img src="{{product.thumbnail}}" alt="{{product.title}}" />
                 </div>
     
             </div>

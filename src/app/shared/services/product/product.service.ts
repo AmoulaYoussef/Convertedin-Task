@@ -10,9 +10,10 @@ import { Product } from '../../models/product';
 })
 export class ProductService {
   productsURl = 'https://dummyjson.com/products';
-  categoriesURL = 'https://dummyjson.com/products/categories';
+  categoriesURL = 'https://dummyjson.com/products/category-list';
   
   cart = new Subject<any>();
+  searchSubject = new Subject<string>();
 
   private http = inject(HttpClient);
 
@@ -20,6 +21,7 @@ export class ProductService {
     let params = setQueryParams({ ...queryObj });
     params = params.set('select', 'title,price,rating,minimumOrderQuantity,thumbnail');    
     if (q != null && q != '') {
+      this.searchSubject.next(q);
       return this.http.get<ProductsListResponse>(`${this.productsURl}/search/`, { params })
     } else if (category != null && category != '') {
       return this.http.get<ProductsListResponse>(`${this.productsURl}/category/${category}`, { params })
@@ -32,7 +34,7 @@ export class ProductService {
     return this.http.get<Product>(this.productsURl + '/' + id);
   }
 
-  getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.categoriesURL)
+  getCategories(): Observable<string[]> {
+    return this.http.get<string[]>(this.categoriesURL)
   }
 }

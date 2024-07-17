@@ -21,13 +21,13 @@
                     <span class="cart-title">Wishlist</span>
                 </a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" (click)="removeNotify = false">
                 <a title="Cart" class="cart-link d-flex align-items-center gap-2 dropdown-toggle" href="#"
                     id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     <div class="cart-icon-container">
                         <img src="./assets/images/cart.svg" alt="cart" width="20px" height="20px">
-                        <span class="notify"></span>
+                        <span class="notify" *ngIf="removeNotify"></span>
                     </div>
                     <span class="cart-title">Cart</span>
                 </a>
@@ -38,7 +38,8 @@
                                 <span>{{cartItem?.product?.title}}</span>
                                 <span>(QTY {{cartItem?.count}})</span>
                             </a>
-                            <div class="dropdown-divider" *ngIf="i == cartItems.length"></div>
+
+                            <div class="dropdown-divider" *ngIf="i != cartItems.length - 1"></div>
                         </div>
                     </ng-container>
                     <ng-container *ngIf="!cartItems.length">

@@ -1,4 +1,7 @@
 .brand{
+    &:not(:last-child) {
+        margin-bottom: remDefault(25px);
+    }
     &-name {
         font-size: remDefault(16px);
         color: $dark-e-black;
@@ -15,7 +18,17 @@
         height: remDefault(22px);
     }
 }
-
+.price-section {
+   .price-wrap > span {
+        color: $gray-d;
+        font-size: remDefault(16px);
+        font-weight: 600;
+    }
+    .p-inputnumber-input {
+        width: remDefault(85px);
+        border-radius: remDefault(8px);
+    }
+}
 .rating {
     &-label {
         color: $gray-d;

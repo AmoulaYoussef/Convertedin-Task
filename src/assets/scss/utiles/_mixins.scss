@@ -1,0 +1,59 @@
+@mixin trim($lines) {
+   
+    @if $lines == 1 {
+        @extend .text-truncate;
+      }
+      
+      @else {
+        display: -webkit-box;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+}
+
+// all prefix
+@mixin css3-prefix($prop, $value) {
+  -webkit-#{$prop}: #{$value};
+  -moz-#{$prop}: #{$value};
+  -ms-#{$prop}: #{$value};
+  -o-#{$prop}: #{$value};
+  #{$prop}: #{$value};
+}
+
+//custom prefix
+@mixin prefix($property, $value, $prefix: ()) {
+  #{$property}: #{$value};
+
+  @each $prefixes in $prefix {
+    #{'-' +  $prefixes + '-' + $property}: $value;
+  }
+}
+
+// truncate width displaying
+@mixin truncate-display($width, $display: inline-block) {
+  max-width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: $display;
+}
+
+//animation
+@mixin keyframe($animate-name) {
+
+  @-webkit-keyframes #{$animate-name} {
+
+    @content;
+  }
+
+  @-moz-keyframes #{$animate-name} {
+
+    @content;
+  }
+
+  @keyframes #{$animate-name} {
+
+    @content;
+  }
+}

@@ -1,0 +1,11 @@
+<p class="section-title">Brand</p>
+
+<div *ngFor="let brand of brandList" class="d-flex gap-3 align-items-center brand">
+    <p-checkbox [(ngModel)]="selectedBrands"  name="group" [value]="brand.name" />
+    <div class="d-flex justify-content-between w-100 gap-2">
+        <label class="brand-name" title="{{brand.name}}">{{brand.name}}</label>
+        <span class="brand-count" title="{{brand.count}}">{{brand.count}}</span>
+    </div>
+</div>
+
+{{selectedBrands}}

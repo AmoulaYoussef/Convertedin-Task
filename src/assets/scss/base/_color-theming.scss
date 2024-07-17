@@ -1,0 +1,81 @@
+/* Color system
+================================ */
+
+$primary: #002985 !default;
+$secondary: #74CB00 !default;
+$success: #4ad991 !default;
+$info: #2F479A !default;
+$warning: #FFBB00 !default;
+$danger: #ff6565 !default;
+$in-progress-purple: #a3a1fb !default;
+$primary-gray: #efefef !default;
+$secondary-gray: #fbfbfb !default;
+$third-gray: #afafaf !default;
+$main-border-cl: rgba(112, 112, 112, 0.3) !default;
+$overlay: rgba(35, 35, 35, 0.7) !default;
+$primary-font: #181c25 !default;
+$secondary-font: rgba(0, 0, 0, 0.5) !default;
+$white: #fff !default; //used
+$black: #000 !default;
+$layouts-color: $primary !default;
+$header-bg: #fff !default;
+$header-color: $primary !default;
+$dark-primary: #26397d !default;
+$dark-success: #54801B !default;
+$dark-warning: #E3B828 !default;
+$dark-danger: #CD5957 !default;
+/* theme color generator
+================================ */
+
+$theme-colors: () !default;
+$theme-colors: ( "primary": $primary, "secondary": $secondary, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "primary-gray": $primary-gray, "secondary-gray": $secondary-gray, "main-border-cl": $main-border-cl, "overlay": $overlay, "primary-font": $primary-font, "secondary-font": $secondary-font, "white": $white, "black": $black, "layouts-color": $layouts-color, );
+
+/* Bootstrap variable apply 
+================================ */
+
+$body-bg: $primary-gray !default;
+$body-color: $primary-font !default;
+$link-color: $primary !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$border-color: rgba($black, 0.2) !default;
+$box-shadow: 0 3px 6px rgba($black, 0.16) !default;
+$input-bg: $white !default;
+$input-color: #565960 !default;
+$input-disabled-bg: #fdfdfd !default;
+$input-placeholder-color: rgba($input-color, 0.5) !default;
+$input-plaintext-color: $body-color !default;
+$input-btn-focus-color: null !default;
+$input-btn-focus-box-shadow: null !default;
+$input-border-color: rgba($third-gray, 0.8) !default;
+$input-box-shadow: none !default;
+$input-focus-bg: $input-bg !default;
+$input-focus-border-color: $primary !default;
+$input-focus-color: $input-color !default;
+$input-focus-width: null !default;
+$input-focus-box-shadow: none !default;
+$form-feedback-valid-color: $success !default;
+$form-feedback-invalid-color: $danger !default;
+$dropdown-border-color: rgba($third-gray, 0.8) !default;
+$btn-disabled-opacity: 0.5 !default;
+
+$color-text: #414042 !default;
+$primary-gray-default: #6D6E71 !default;
+$black-color: #000;
+$dark-black: #262626;
+$dark-l-gray: #333333;
+
+
+// card 
+$primary-color-light: #E6ECFC;
+$light-d-gray: #F2F4F7;
+$light-s-gray: #EAECF0;
+$light-f-gray: #F9FAFB;
+$light-dd-gray: #D0D5DD;
+$gray-d: #98A2B3;
+$dark-l-black: #101828;
+$dark-d2-black : #1D2939;
+$dark-d-black: #344054;
+$dark-e-black: #1D2939;
+$light-e-gray: #7E859B;
+$light-66-gray: #667085;
+$light-e-yallow: #FEFBE8;

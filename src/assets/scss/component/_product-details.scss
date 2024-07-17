@@ -1,0 +1,126 @@
+//
+.product-details-wrap {
+    background: $white;
+    padding: remDefault(20px) remDefault(48px);
+    .btn-primary {
+        width: remDefault(350px);
+        padding: remDefault(16px);
+    }
+}
+
+.product-title {
+    font-size: remDefault(24px);
+    font-weight: 500;
+    color: $dark-d-black;
+    margin-bottom: remDefault(15px);
+}
+
+.product-rating {
+    border-radius: 11px;
+    padding: remDefault(2.76px) remDefault(5.53px);
+    border: 1px solid $light-s-gray;
+    display: inline-block;
+    margin-bottom: remDefault(15px);
+    font-size: remDefault(10px);
+    color: $light-66-gray;
+    span{
+        color: $light-dd-gray;
+    }
+}
+
+.product-price {
+    color: $dark-e-black;
+    font-weight: 700;
+    font-size: remDefault(20px);
+    margin-bottom: remDefault(25px);
+
+    .price-format {
+        color: $gray-d;
+        font-weight: 500;
+        font-size: remDefault(15px);
+        margin-right: remDefault(10px);
+    }
+}
+
+.product-delivery-info, .payment-plan {
+    div, span, a {
+        &:first-child {
+            color: $light-66-gray;
+            font-size: remDefault(10px);
+            font-weight: 500;
+        }
+
+        &:last-child {
+            font-size: remDefault(12px);
+            font-weight: 700;
+            color: $dark-d2-black;
+        }
+    }
+}
+
+.payment-plan {
+    background: $light-e-yallow;
+    padding: remDefault(16px);
+}
+
+// product-images
+
+.product-images {
+    &-list {
+        width: remDefault(100px);
+
+        img {
+            height: remDefault(140px);
+        }
+    }
+
+    &-view {
+        img {
+            width: remDefault(450px);
+            height: remDefault(460px);
+        }
+    }
+}
+
+// product-policy
+
+.product-policy {
+    img {
+        width: remDefault(35px);
+        height: remDefault(35px);
+    }
+
+    &-item {
+        .title {
+            font-size: remDefault(12px);
+            font-weight: 600;
+            color: $dark-d-black;
+        }
+
+        .desc {
+            color: $light-e-gray;
+            font-size: remDefault(14px);
+            font-weight: 400;
+        }
+    }
+}
+
+//highlights  overview{
+.highlights,
+.overview {
+    border: 1px solid $light-s-gray;
+    border-radius: 4px;
+    padding: remDefault(40px);
+    margin-bottom: remDefault(20px);
+
+    .section-title {
+        margin-bottom: remDefault(20px);
+        ;
+    }
+
+    .desc {
+        color: $gray-d;
+        font-size: remDefault(18px);
+        font-weight: 400;
+    }
+}

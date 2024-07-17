@@ -1,0 +1,5 @@
+<p class="section-title">Category</p>
+
+<ul class="category-wrap">
+    <li [class.active]="i === 0" *ngFor="let item of catagoryList; let i = index" title="{{item}}"><a href="#">{{item}}</a></li>
+</ul>

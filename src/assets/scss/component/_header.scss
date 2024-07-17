@@ -1,0 +1,45 @@
+.header-nav {
+        
+    .header-nav-top {
+        background: $primary;
+            padding: remDefault(20px) remDefault(48px);
+        .header-nav-top-wrap{
+            .logo{}
+            .search-bar-wrap{
+                position: relative;
+                flex: 1 1 0%;
+                .search-icon {
+                    position: absolute;
+                    left: remDefault(10px);
+                    top: 50%;
+                    bottom: 50%;
+                    margin: auto;
+                }
+               .search-text {
+                    width: 100%;
+                    height: remDefault(36px);
+                    padding: remDefault(10px) remDefault(24px);
+                    border: unset;
+                    background-color: $white;
+                    border-radius: 4px;
+                    font-size: remDefault(11px);
+                    color: $gray-d;
+               }
+            }
+            .wishlist-link{
+            }
+            .cart-link {
+            }
+            .cart-title {
+                color: $white;
+                font-size: remDefault(14px);
+                font-weight: 500;
+            }
+            .cart-icon-container{}
+        }
+    }
+    .header-nav-bottom {
+        background: $primary-color-light;
+        padding: remDefault(20px) remDefault(48px);
+    }
+}

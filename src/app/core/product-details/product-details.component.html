@@ -1,0 +1,80 @@
+<ng-container *ngIf="productItem() as product">
+
+<div class="container product-details-wrap">
+    <div class="row">
+        <div class="col-md-5 product-images d-flex gap-3">
+            <div class="d-flex flex-column product-images-list">
+                <img src="{{image}}" alt="{{product.title}}" *ngFor="let image of product.images" (click)="getCurrentImage(image)"/>
+            </div>
+            <div class="product-images-view" *ngIf="product?.images?.length">
+                <img src="{{currentImage??  product.images.length ? product.images : ''}}" alt="{{product.title}}" />
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="product-title">{{product.title}}</div>
+            <div class="product-rating" title="{{product.rating}}">
+                <img src="./assets/images/star.svg"/>{{product.rating}}<span
+                    title="({{product.minimumOrderQuantity}})">({{product.minimumOrderQuantity}})</span>
+            </div>
+            <div class="product-price"><span class="price-format">EGP</span>{{product.price}}</div>
+            <div class="product-delivery-info d-inline-block mb-3">
+                <div>Free Delivery by Tomorrow</div>
+                <div>Order in 6 hrs 46 mins</div>
+            </div>
+            <div class="d-flex  mb-4">
+                <div class=" d-flex gap-3 payment-plan">
+                    <span>Monthly payment plans from EGP 778</span>
+                    <a href="https://www.converted.in/">View more details</a>
+                </div>
+            </div>
+
+            <div class="d-flex gap-2">
+                <!-- dropdown -->
+                <p-dropdown [options]="getQTYOptions(product.stock)" [(ngModel)]="selectedQTY" optionLabel="name"  optionValue="value"/>
+
+                 <button class="btn btn-primary" (click)="addCart()">Add To Cart</button>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="product-policy">
+               <div class="d-flex gap-3 mb-4" *ngFor="let item of productPolicy">
+                <img src="{{item.src}}" alt="{{item.title}}"/>
+                <div class="product-policy-item d-flex flex-column">
+                    <div class="title" title="{{item.title}}">{{item.title}}</div>
+                    <div class="desc" title="{{item.desc}}">{{item.desc}}</div>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="overview">
+            <div class="section-title">Overview</div>
+            <div class="desc">{{product.description}}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="highlights">
+            <div class="section-title">Highlights</div>
+            <div class="desc">
+                Lightning Speed - Harness the power of a custom CPU, GPU, and SSD with Integrated I/O that rewrite the rules of what a
+                PlayStation console can do.
+                Stunning Games - Marvel at incredible graphics and experience new PS5 features.
+                Breathtaking Immersion - Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D
+                Audio technology.
+                Enjoy smooth and fluid high-frame-rate gameplay at up to 120fps for compatible games.
+                With an HDR tv, supported PS5 games display an unbelievably vibrant and lifelike range of colours
+                Enjoy a comfortable, evolved design with an iconic layout and enhanced sticks, intuitively interact with select games
+                using the integrated motion sensor Hear higher-fidelity sound effects through the built-in speaker in supported games
+            </div>
+        </div>
+    </div>
+</div>
+</ng-container>
+
+<ng-container *ngIf="errorMessage()">
+    <listing-state-card description="internalErrorDescription"
+        [title]="errorMessage()! || 'internalError'"></listing-state-card>
+</ng-container>
+<preloader [assetUrl]="assetUrl" *ngIf="isLoading()"></preloader>

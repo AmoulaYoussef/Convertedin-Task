@@ -1,0 +1,5 @@
+@function remDefault($value) {
+    @if type-of($value)=="number" {
+        @return ($value / 16px) * 1rem;
+    }
+}

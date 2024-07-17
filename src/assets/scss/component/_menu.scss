@@ -1,0 +1,31 @@
+
+ul {
+    margin-bottom: 0;
+    li{ 
+        list-style-type: none;
+        a{
+            text-decoration: unset;
+            color: $dark-l-black;
+            font-size: remDefault(13px);
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.category-wrap {
+    border-left: 2px solid $light-s-gray;
+    padding-left: remDefault(15px);
+   li {
+       font-size: remDefault(16px);
+       color: $dark-d-black;
+       margin-bottom: remDefault(20px);
+   }
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: remDefault(16px);
+    color: $dark-e-black;
+}

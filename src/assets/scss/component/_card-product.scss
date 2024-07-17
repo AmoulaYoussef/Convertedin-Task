@@ -1,0 +1,42 @@
+.product-listing-filter {
+    padding: remDefault(20px) remDefault(48px);
+    .product-filter {
+     
+    }
+    .product-list-wrap {
+       
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);
+            grid-auto-flow: dense;
+            align-items: stretch;
+            justify-items: stretch;
+            .product-item {
+                grid-column: auto / span 4;
+                margin-bottom: remDefault(24px);
+            }
+            .card-product {
+                width: remDefault(200px);
+                background: $white;
+                &-img {
+                  height: remDefault(200px);
+                  border-bottom: 5px solid $light-d-gray;
+                  img {
+                    width: 100%;
+                  }
+                }
+            
+                &-info {
+                    height: remDefault(88.4px);
+                    padding: remDefault(13.82px) remDefault(16px);
+                }
+            
+                &-title {
+                    font-size: remDefault(13px);
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+}

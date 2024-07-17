@@ -1,0 +1,15 @@
+<div class="card-product">
+    <div class="card-product-img">
+        <img src="{{product.thumbnail}}" alt="{{product.title}}">
+    </div>
+    <div class="card-product-info">
+        <div class="card-product-title" title="{{product.title}}">{{product.title}}</div>
+        <div class="d-flex justify-content-between">
+            <span class="card-product-price" title="{{product.price}}">{{product.price}}</span>
+            <div class="product-rating d-flex" title="{{product.rating}}">
+                <img src="./assets/images/star.svg" />{{product.rating}}<span
+                    title="({{product.minimumOrderQuantity}})">({{product.minimumOrderQuantity}})</span>
+            </div>
+        </div>
+    </div>
+</div>

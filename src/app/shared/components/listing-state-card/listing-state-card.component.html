@@ -1,0 +1,9 @@
+
+      <div class="card listing-request-state-card d-flex align-items-center justify-content-center flex-column">
+        <!-- icon  -->
+        <img  [src]="assetUrl + 'result-icon'" [title]="'noDataFound'" [alt]="'noDataFound'" loading="lazy"/>
+        <h2 class="title" [title]="title">{{title}}</h2>
+        <p  class="description" *ngIf="description" [title]="description">{{description}}</p>
+      </div>
+
+

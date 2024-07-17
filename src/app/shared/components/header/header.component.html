@@ -1,0 +1,38 @@
+<header class="header-nav">
+    <div class="header-nav-top">
+        <div class="header-nav-top-wrap d-flex align-items-center gap-4 flex-wrap">
+            <a id="btn_logo">
+                <img src="./assets/images/logo.png" alt="Convertedin" class="logo">
+            </a>
+    
+            <div class="search-bar-wrap">
+                <img src="./assets/images/search.svg" class="search-icon">
+                <input type="text" id="searchBar" class="search-text" placeholder="search for product" autocomplete="off"
+                    value="">
+            </div>
+    
+            <a class="wishlist-link d-flex align-items-center gap-2" href="#" title="Wishlist">
+                <div class="cart-icon-container">
+                    <img src="./assets/images/wishlist.svg" alt="wishlist" width="20px"
+                    height="20px">
+                </div>
+                <span class="cart-title">Wishlist</span>
+            </a>
+    
+            <a href="#" title="Cart" class="cart-link d-flex align-items-center gap-2">
+                <div class="cart-icon-container">
+                    <img src="./assets/images/cart.svg" alt="cart" width="20px" height="20px">
+                </div>
+                <span class="cart-title">Cart</span>
+            </a>
+        </div>
+    </div>
+    <div class="header-nav-bottom">
+        <ul class="nav-menu d-flex align-items-center gap-3 px-0 flex-wrap">
+            <li class="nav-item" *ngFor="let item of menuSub"><a
+                href="#"><span>{{item | uppercase}}</span></a>
+            </li>
+        </ul>
+            
+    </div>
+</header>

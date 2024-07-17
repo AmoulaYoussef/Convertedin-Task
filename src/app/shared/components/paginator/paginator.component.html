@@ -1,0 +1,3 @@
+<div *ngIf="pageChanges$ | async as page">
+  <p-paginator [rows]="rows"  [totalRecords]="totalRecords" [first]="page"  [showFirstLastIcon]="false" (onPageChange)="paginate($event)" ></p-paginator>
+</div>
